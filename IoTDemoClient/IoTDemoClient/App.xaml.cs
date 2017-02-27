@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
+using IoTDemoClient.Services;
 using Xamarin.Forms;
 
 namespace IoTDemoClient
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
-		public App ()
+        public string mobileURL = "";
+        public static iotCloudService MobileSvc { get; set; }
+
+        public App ()
 		{
-			InitializeComponent();
+            MobileSvc = new iotCloudService("https://iotbenko2.azurewebsites.net");
+
+            InitializeComponent();
 
 			MainPage = new IoTDemoClient.MainPage();
 		}

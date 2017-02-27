@@ -13,5 +13,17 @@ namespace IoTDemoClient
 		{
 			InitializeComponent();
 		}
-	}
+
+        private async void btnRegister(object sender, EventArgs e)
+        {
+            var name = "";// txtName.Text;
+            var rc = await App.MobileSvc.Register(name);
+
+        }
+
+        private void btnSend(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
