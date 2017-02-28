@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IoTDemoClient.Pages.DevicesPage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                10, 20, 10, 10
+            </OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid x:Name="rootContent">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Grid.Row="0" FontSize="Large" HorizontalOptions="Center" 
+               Text="{Binding Title}" />
+
+        <ListView Grid.Row="1" ItemsSource="{Binding Devices}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Text="{Binding Key}" FontSize="Micro"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>

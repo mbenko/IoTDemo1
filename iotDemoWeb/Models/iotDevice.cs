@@ -9,7 +9,7 @@ namespace iotDemoWeb.Models
     public class iotDevice : BaseDataModel
     {
         public string Name { get; set; }
-        public string IoTHubURL { get; set; }
+        //public string IoTHubURL { get; set; }
         public string Key { get; set; }
         public string Type { get; set; }
         public string Owner { get; set; }

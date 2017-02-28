@@ -11,9 +11,9 @@ namespace IoTDemoClient
 
         public App ()
 		{
-            MobileSvc = new iotCloudService("https://iotbenko2.azurewebsites.net");
-
             InitializeComponent();
+
+            MobileSvc = new iotCloudService("https://iotbenko2.azurewebsites.net");
 
 			MainPage = new IoTDemoClient.MainPage();
 		}

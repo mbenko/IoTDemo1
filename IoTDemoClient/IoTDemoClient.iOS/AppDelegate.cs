@@ -25,6 +25,10 @@ namespace IoTDemoClient.iOS
 			global::Xamarin.Forms.Forms.Init ();
 			LoadApplication (new IoTDemoClient.App ());
 
+
+            // BENKO: Init Current Platform...
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
 			return base.FinishedLaunching (app, options);
 		}
 	}

@@ -3,25 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IoTDemoClient"
              x:Class="IoTDemoClient.MainPage">
-    <StackLayout>
-	    <Label Margin="25" Text="IoT Demo" FontSize="Large" FontAttributes="Bold"
+
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                10, 20, 10, 10
+            </OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <StackLayout x:Name="rootLayout">
+        <Label Margin="25" Text="{Binding Title}" FontSize="Large" FontAttributes="Bold"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
 
         <StackLayout Margin="10" Orientation="Horizontal">
             <Label Text="Name"/>
-            
-            <!--<TextCell x:Name="txtName" />-->
+            <Entry x:Name="txtName" Text="{Binding Name}" WidthRequest="200"/>
         </StackLayout>
-        
-        <Button Margin="10" Clicked="btnRegister" Text="Register"/>
-
-        <!--<StackLayout Margin="10" Orientation="Horizontal">
-            <Label Text="Name"/>
-            <TextCell x:Name="txtName"/>
-        </StackLayout>
-        <Button Margin="10" Clicked="btnSend" Text="Send"/>-->
-
+        <Button HorizontalOptions="Center" Clicked="btnRegister" Text="Register"/>
     </StackLayout>
 
 

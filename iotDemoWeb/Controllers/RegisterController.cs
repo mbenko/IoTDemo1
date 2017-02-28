@@ -48,7 +48,7 @@ namespace iotDemoWeb.Controllers
 
                 device = _db.Devices.Add(new iotDevice() {
                     Name = name,
-                    IoTHubURL = myHubURL,
+                    //IoTHubURL = myHubURL,
                     Key = myDevice.Authentication.SymmetricKey.PrimaryKey.ToString(),
                     Type = type,
                     Owner = owner,

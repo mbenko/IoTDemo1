@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IoTDemoClient.PageModels;
+using IoTDemoClient.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +11,19 @@ namespace IoTDemoClient
 {
 	public partial class MainPage : ContentPage
 	{
+        MainPageModel model = new MainPageModel();
 		public MainPage()
 		{
 			InitializeComponent();
+            rootLayout.BindingContext = model;
 		}
 
         private async void btnRegister(object sender, EventArgs e)
         {
-            var name = "";// txtName.Text;
-            var rc = await App.MobileSvc.Register(name);
+            var name = model.Name; // "";// txtName.Text;
+            var rc = await App.MobileSvc.Register(model.Name);
+
+            await Navigation.PushModalAsync(new DevicesPage());
 
         }
 

@@ -11,7 +11,7 @@ namespace IoTDeviceConsole
     class Program
     {
         static RegistryManager myRegistery;
-        static string myHubString = "HostName=benkoIoTHub2.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=/QYY624o16cxBoKnN1uVCRkgt7itI6JXWUs26QWXhGI=";
+        static string myHubString = "HostName=iot-prevent-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=EZfFDS//srSWYrMzXnPFPzYVBu+652nkUchEuqs2SFA=";
 
         static void Main(string[] args)
         {
@@ -22,8 +22,9 @@ namespace IoTDeviceConsole
 
         private static async Task AddDeviceAsync()
         {
-            string devID = "myFirstDevice-" + Guid.NewGuid().ToString().Substring(0,5);
+            string devID = "myFirstDevice";// + Guid.NewGuid().ToString().Substring(0,5);
             Device myDevice;
+           
             try
             {
                 myDevice = await myRegistery.AddDeviceAsync(new Device(devID));

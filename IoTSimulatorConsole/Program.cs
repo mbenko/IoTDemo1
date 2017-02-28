@@ -11,8 +11,8 @@ namespace IoTSimulatorConsole
     class Program
     {
         static DeviceClient myDevice;
-        static string iotHubUri = "benkoIoTHub2.azure-devices.net";
-        static string myKey = "GeCTNC1iVGX36FXKklrUyxtju6dp1I5gk70CKskMfgw=";
+        static string iotHubUri = "iot-prevent-hub.azure-devices.net";
+        static string myKey = "r48qx71unvS1GOkzQ49/LHepTyyM7U3wN+LwlFUQhVk=";
         static string myDeviceName = "myFirstDevice";
 
         static void Main(string[] args)
@@ -36,10 +36,11 @@ namespace IoTSimulatorConsole
 
                 var telemetryPoint = new
                 {
+                    deviceid = myDeviceName,
+                    impactts = DateTime.UtcNow,
                     count = i,
-                    deviceID = myDeviceName,
                     windSpeed = currentWindSpeed,
-                    created = DateTime.UtcNow
+                    source = "sampledata"
                 };
                 var msgString = JsonConvert.SerializeObject(telemetryPoint);
                 var msg = new Message(Encoding.ASCII.GetBytes(msgString));
@@ -47,7 +48,7 @@ namespace IoTSimulatorConsole
                 await myDevice.SendEventAsync(msg);
                 Console.WriteLine($"{DateTime.UtcNow} > Sending message: {msgString}");
 
-                Task.Delay(1000).Wait();
+                Task.Delay(10000).Wait();
             }
         }
 
